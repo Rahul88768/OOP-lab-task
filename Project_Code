@@ -1,0 +1,65 @@
+package abc;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class CarParkingSystem {
+    private HashMap<Integer, String> parking = new HashMap<>();
+
+    public void park(int spot, String license) {
+        if (!parking.containsKey(spot)) {
+            parking.put(spot, license);
+            System.out.println("Parked at spot " + spot);
+        } else {
+            System.out.println("Spot " + spot + " is occupied.");
+        }
+    }
+
+    public void leave(int spot) {
+        if (parking.remove(spot) != null) {
+            System.out.println("Spot " + spot + " is now free.");
+        } else {
+            System.out.println("Spot " + spot + " is already empty.");
+        }
+    }
+
+    public void status() {
+        if (parking.isEmpty()) {
+            System.out.println("All spots are free.");
+        } else {
+            parking.forEach((spot, license) -> System.out.println("Spot " + spot + ": " + license));
+        }
+    }
+
+    public static void main(String[] args) {
+        CarParkingSystem system = new CarParkingSystem();
+        Scanner sc = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("1. Park\n2. Leave\n3. Status\n4. Exit");
+            int choice = sc.nextInt();
+
+            switch (choice) {
+                case 1 -> {
+                    System.out.print("Enter spot: ");
+                    int spot = sc.nextInt();
+                    System.out.print("Enter license: ");
+                    String license = sc.next();
+                    system.park(spot, license);
+                }
+                case 2 -> {
+                    System.out.print("Enter spot: ");
+                    int spot = sc.nextInt();
+                    system.leave(spot);
+                }
+                case 3 -> system.status();
+                case 4 -> {
+                    System.out.println("Exiting...");
+                    sc.close();
+                    return;
+                }
+                default -> System.out.println("Invalid choice.");
+            }
+        }
+    }
+}
