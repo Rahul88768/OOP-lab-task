@@ -1,2 +1,1 @@
-# OOP lab task
- Project of Car Parking System
+This is our project, Car Parking System, which is a group task of oop lab. The system is designed to efficiently manage the parking process.. We have implemented object-oriented programming concepts such as classes, inheritance, and polymorphism to structure the system effectively. The project ensures accurate tracking of vehicles and optimizes the use of parking spaces. It minimizes manual effort, making parking operations more seamless and reliable. Our team worked collaboratively to build this system, focusing on both functionality and user experience.
